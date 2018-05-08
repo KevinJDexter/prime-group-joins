@@ -20,9 +20,10 @@ JOIN "warehouse" ON "warehouse"."id" = "warehouse_id"
 WHERE "description" = 'diet pepsi';
 
 --5. Get the number of orders for each customer
-SELECT COUNT(*) FROM "orders"
+SELECT "first_name", "last_name", COUNT(*) FROM "orders"
 JOIN "addresses" ON "addresses"."id" = "address_id"
-JOIN "customers" ON "customers"."id" = "customer_id";
+JOIN "customers" ON "customers"."id" = "customer_id"
+GROUP BY "customer_id", "first_name", "last_name";
 
 --6. How many customers do we have?
 SELECT COUNT(*) FROM "customers";
